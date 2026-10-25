@@ -21,6 +21,7 @@ func NewBackend(config *shared.Config, lookup *HostLookup) *Backend {
 
 func (b *Backend) Run() error {
 	r := gin.New()
+	r.Use(gin.Logger())
 	r.Use(gin.Recovery())
 
 	if b.config.Verbose {
